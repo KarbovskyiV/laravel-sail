@@ -25,6 +25,7 @@ class CompanyCreate extends Component
     {
         if ($property == 'country') {
             $this->cities = City::where('country_id', $this->country)->get();
+            $this->city = $this->cities->first()->id;
         }
     }
 
