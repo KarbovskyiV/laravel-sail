@@ -1,5 +1,5 @@
 <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-    <form>
+    <form wire:submit="save">
         <div class="mb-4">
             <label for="name" class="block text-gray-700">Company name</label>
             <input wire:model="name" type="text" required id="name" class="w-full p-2 mt-1 border rounded border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">

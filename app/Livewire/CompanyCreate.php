@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\City;
+use App\Models\Company;
 use App\Models\Country;
 use Livewire\Component;
 
@@ -24,6 +25,17 @@ class CompanyCreate extends Component
         if ($property == 'country') {
             $this->cities = City::where('country_id', $this->country)->get();
         }
+    }
+
+    public function save(): void
+    {
+        Company::create([
+            'name' => $this->name,
+            'country_id' => $this->country,
+            'city_id' => $this->city
+        ]);
+
+        $this->reset('name', 'country', 'city', 'cities');
     }
 
     public function render()
