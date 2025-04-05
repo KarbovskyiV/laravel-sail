@@ -22,7 +22,7 @@ class CompanyEdit extends Component
     {
         $this->form->name = $company->name;
         $this->form->country = $company->country_id;
-        $this->cities = City::where('country_id', $this->country)->get();
+        $this->cities = City::where('country_id', $this->form->country)->get();
         $this->form->city = $company->city_id;
 
         $this->countries = Country::all();
@@ -38,7 +38,8 @@ class CompanyEdit extends Component
 
     public function render()
     {
-        return view('livewire.company-edit');
+        return view('livewire.company-edit')
+            ->title('Edit Company ' . $this->form->name);
     }
 
     public function save(): void
